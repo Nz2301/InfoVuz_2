@@ -53,6 +53,11 @@ flutter:
     - assets/icons/menubutton.png
     - assets/images/iitu.jpg
     - assets/logo/infovuz-logo.png
+    - assets/images/ironman.jpeg
+    - assets/images/rob.jpeg
+    - assets/icons/arrow_point_to_right.png
+    - assets/icons/back.png
+    - assets/logo/vector.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infovuz/screens/login.dart';
 
-import 'widgets/home-page.dart';
-
 void main() {
   runApp(MyApp());
 }

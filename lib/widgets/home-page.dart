@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:infovuz/screens/detail_info.dart';
 
 import 'nav-drawer.dart';
 
@@ -16,10 +18,15 @@ class _HomeScreen extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.white,
+      statusBarIconBrightness: Brightness.dark,
+    ));
     return Scaffold(
       key: _scaffoldKey,
       drawer: NavDrawer(),
       appBar: AppBar(
+        // backgroundColor: Colors.white,
         title: Text(
           'List of universities',
           style: TextStyle(
@@ -44,12 +51,14 @@ class _HomeScreen extends State<HomePage> {
         children: [
           Container(
             height: 76,
+            width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 1),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(25),
-                  bottomRight: Radius.circular(25),
-                )),
+              color: Color.fromRGBO(255, 255, 255, 1),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(25),
+                bottomRight: Radius.circular(25),
+              ),
+            ),
             alignment: Alignment.center,
             child: Container(
               height: 36,
@@ -77,34 +86,42 @@ class _HomeScreen extends State<HomePage> {
             child: ListView(
               padding: const EdgeInsets.all(8),
               children: <Widget>[
-                Container(
-                  height: 170,
-                  width: 334,
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  margin: EdgeInsets.only(
-                    bottom: 20,
-                    left: 20,
-                    right: 20,
-                  ),
-                  child: const Center(
-                      child: Text(
-                    'International IT University',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      letterSpacing: 1.5,
-                      fontSize: 26,
-                      color: Colors.white,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailPage()),
+                    );
+                  },
+                  child: Container(
+                    height: 170,
+                    width: 334,
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    margin: EdgeInsets.only(
+                      bottom: 20,
+                      left: 20,
+                      right: 20,
                     ),
-                    textAlign: TextAlign.center,
-                  )),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      alignment: Alignment.center,
-                      image: AssetImage("assets/images/iitu.jpg"),
-                      colorFilter: ColorFilter.srgbToLinearGamma(),
-                      fit: BoxFit.cover,
+                    child: const Center(
+                        child: Text(
+                      'International IT University',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.5,
+                        fontSize: 26,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    )),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        alignment: Alignment.center,
+                        image: AssetImage("assets/images/iitu.jpg"),
+                        colorFilter: ColorFilter.srgbToLinearGamma(),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                 ),
                 Container(

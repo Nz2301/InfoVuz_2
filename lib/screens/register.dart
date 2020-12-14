@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:infovuz/screens/register.dart';
+import 'package:infovuz/screens/login.dart';
 import 'package:infovuz/widgets/home-page.dart';
 import 'package:flutter/services.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageSate createState() => _LoginPageSate();
+  _RegisterPageSate createState() => _RegisterPageSate();
 }
 
-class _LoginPageSate extends State<LoginPage> {
+class _RegisterPageSate extends State<RegisterPage> {
   TextStyle style = TextStyle(
       fontFamily: 'Montserrat', fontSize: 14.0, fontWeight: FontWeight.w400);
 
@@ -18,25 +18,6 @@ class _LoginPageSate extends State<LoginPage> {
       statusBarColor: Color.fromRGBO(239, 96, 84, 1),
       statusBarIconBrightness: Brightness.light,
     ));
-    final emailField = TextField(
-      obscureText: false,
-      style: style,
-      decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "Email",
-          fillColor: Colors.white,
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-    );
-    final passwordField = TextField(
-      obscureText: true,
-      style: style,
-      decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          hintText: "Password",
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
-    );
     final loginButon = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
@@ -51,7 +32,7 @@ class _LoginPageSate extends State<LoginPage> {
           );
         },
         child: Text(
-          "Sign in",
+          "Sign up",
           textAlign: TextAlign.center,
           style: TextStyle(
             fontWeight: FontWeight.w400,
@@ -82,7 +63,7 @@ class _LoginPageSate extends State<LoginPage> {
               ),
               Container(
                 margin: EdgeInsets.only(top: 26),
-                height: 326,
+                height: 400,
                 width: 335,
                 padding: EdgeInsets.all(32),
                 decoration: BoxDecoration(
@@ -94,7 +75,7 @@ class _LoginPageSate extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Sign in",
+                      "Sign up",
                       style: TextStyle(
                         fontSize: 30,
                         fontFamily: "Montserrat",
@@ -104,6 +85,29 @@ class _LoginPageSate extends State<LoginPage> {
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 26.0),
+                    Container(
+                      height: 39,
+                      width: 272,
+                      // margin: EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Username',
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(133, 133, 133, 1),
+                            ),
+                            icon: Icon(
+                              Icons.email,
+                              color: Color.fromRGBO(142, 142, 147, 1),
+                            )),
+                      ),
+                    ),
+                    SizedBox(height: 15.0),
                     Container(
                       height: 39,
                       width: 272,
@@ -149,37 +153,44 @@ class _LoginPageSate extends State<LoginPage> {
                             )),
                       ),
                     ),
+                    SizedBox(height: 15.0),
+                    Container(
+                      height: 39,
+                      width: 272,
+                      // margin: EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Retype Password',
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(133, 133, 133, 1),
+                            ),
+                            icon: Icon(
+                              Icons.people,
+                              color: Color.fromRGBO(142, 142, 147, 1),
+                            )),
+                      ),
+                    ),
                     SizedBox(
                       height: 15.0,
                     ),
                     loginButon,
-                    SizedBox(
-                      height: 15.0,
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Text(
-                        "Forgot your password?",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontFamily: "Montserrat",
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 200.0,
+                height: 130.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don’t have an account",
+                    "Already have an account",
                     style: TextStyle(
                       fontSize: 14,
                       fontFamily: "Montserrat",
@@ -195,11 +206,11 @@ class _LoginPageSate extends State<LoginPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => RegisterPage()),
+                        MaterialPageRoute(builder: (context) => LoginPage()),
                       );
                     },
                     child: Text(
-                      "Sign up",
+                      "Sign in",
                       style: TextStyle(
                         fontSize: 17,
                         fontFamily: "Montserrat",
